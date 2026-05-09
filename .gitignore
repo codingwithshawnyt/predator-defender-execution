@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# uv
+.uv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Hydra defaults
+outputs/
+multirun/
+
+# Project artifacts
+artifacts/
+
+# WandB
+wandb/
+
+# TensorBoard
+runs/
+events.out.tfevents.*
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Vendored simulators (fallback path)
+vendor/
+
+# Local scratch
+scratch/
+TODO.md
+
+# VSCode SFTP plugin local config (don't commit your remote credentials)
+.vscode/sftp.json

@@ -1,0 +1,4 @@
+horizon_seconds: 1800.0
+control_interval_seconds: 1.0
+n_background_traders: 100
+fundamental_volatility: 1.0

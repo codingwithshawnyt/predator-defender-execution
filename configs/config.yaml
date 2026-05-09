@@ -1,0 +1,18 @@
+defaults:
+  - sim: pymarketsim_default
+  - agent/defender: twap
+  - agent/predator: noop
+  - training: ppo_default
+  - regime: vol_mid_spread_tight_size_medium
+  - eval: default
+  - _self_
+
+project_name: predator-defender-execution
+run_name: ${now:%Y-%m-%d_%H-%M-%S}_${hydra:job.name}
+seed: 0
+device: cuda:0
+
+wandb:
+  enabled: true
+  entity: null  # override locally; do not commit your entity
+  tags: []

@@ -1,0 +1,3 @@
+_target_: pde.agents.baselines.TWAPDefender
+total_quantity: 1000.0
+n_steps: 1800

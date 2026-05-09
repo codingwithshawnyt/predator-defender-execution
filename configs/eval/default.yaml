@@ -1,0 +1,4 @@
+n_test_episodes: 100
+n_seeds: 5
+bootstrap_n_resamples: 1000
+multiple_comparison_correction: holm

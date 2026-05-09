@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install CPU-only dependencies
+        env:
+          UV_INDEX_STRATEGY: unsafe-best-match
+        run: |
+          uv sync --extra dev --index https://download.pytorch.org/whl/cpu
+
+      - name: Lint with ruff
+        run: uv run ruff check src tests
+
+      - name: Format check
+        run: uv run ruff format --check src tests
+
+      - name: Type check
+        run: uv run mypy src
+        continue-on-error: true
+
+      - name: Run unit tests
+        run: uv run pytest tests/unit -m "not gpu" -v
