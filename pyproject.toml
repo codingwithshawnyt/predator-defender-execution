@@ -15,7 +15,7 @@ dependencies = [
     "scipy>=1.13",
     "pandas>=2.2",
     "polars>=1.0",
-    "pyarrow>=16",
+    "pyarrow>=16,<20",
     "matplotlib>=3.8",
     "seaborn>=0.13",
 
@@ -29,7 +29,7 @@ dependencies = [
     # Game theory + Experiment management
     "hydra-core>=1.3",
     "omegaconf>=2.3",
-    "wandb>=0.18",
+    "wandb>=0.18,<0.19",
     "rich>=13",
     "typer>=0.12",
     "tqdm>=4.66",
@@ -92,3 +92,19 @@ markers = [
     "slow: marks tests as slow (deselect with -m 'not slow')",
     "gpu: marks tests requiring a CUDA GPU",
 ]
+
+[tool.uv]
+environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "sys_platform == 'win32'",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu121", marker = "sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
