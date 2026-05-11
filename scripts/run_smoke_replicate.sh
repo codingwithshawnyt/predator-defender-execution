@@ -16,7 +16,7 @@ uv run python -m pde.training.smoke_replicate \
     --q-0 100.0 \
     --n-bg 50 \
     --alpha 0.002 \
-    --K 21 \
+    --n-volume-bins 21 \
     --episodes 5000 \
     --lr 1e-4 \
     --batch-size 64 \
